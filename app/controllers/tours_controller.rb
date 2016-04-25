@@ -7,12 +7,13 @@ class ToursController < ApplicationController
   # GET /tours.json
   def index
     @tours = Tour.all
-  if params[:search]
-      @tours = Tour.search(params[:search]).order("created_at DESC")
-    else
-      @tours = Tour.all.order('created_at DESC')
+    if params[:search]
+        @tours = Tour.search(params[:search]).order("created_at DESC")
+      else
+        @tours = Tour.all.order('created_at DESC')
+    end
   end
-  end
+  
   def index
     @tours = Tour.all
   end
