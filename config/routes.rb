@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  
+  #theser lines of code crete custom routes
   devise_scope :user do 
     get 'register', to: 'devise/registrations#new', as: :register
     get 'login', to: 'devise/sessions#new', as: :login
@@ -8,11 +8,13 @@ Rails.application.routes.draw do
   end
   
   resources :comments
-  resources :tours   
-  
-  #def index
-    #@tours = Tours.all
+  resources :tours  
+  #this allows a user to put feed as a url to get tour page
+  get 'feed', to: 'tours#index', as: :feed
+  #this makes tours the hoem page
    root to: "tours#index"
+     #def index
+    #@tours = Tours.all
   #get '/info', :controller=>'comments', :action=>'info'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

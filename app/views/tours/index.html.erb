@@ -1,26 +1,24 @@
-<p id="notice"><%= notice %></p>
+<p id="notice"></p>
 <%= form_tag(tours_path, :method => "get", id: "search-form") do %>
 <%= text_field_tag :search, params[:search], placeholder: "Search tours by type of tour" %>
 <%= submit_tag "search" %>
 <% end %>
-         <div class="page-header">
+        <div class="page-header">
                <h1>All Trips</h1>
-         </div>
-     
-     <% @tours.each do |tours| %>
+        </div>
+             <% @tours.each do |tours| %>
         <div class="tours">
-              <strong><%= tours.Type_of_tour %></strong>
-                <p><%= tours.Date_of_tour%></p>
-                <p><%= tours.Time_of_tour %></p>
+             <strong><%= tours.Type_of_tour %></strong>
+             <p><%= tours.Date_of_tour%></p>
+             <p><%= tours.Time_of_tour %></p>
         <div class="meta">
              <%#= link_to time_ago_in_words(trip.created_at) + " ago", trip %> |
-                <%= link_to "Show", tours %> |
+             <%= link_to "Show", tours %> |
         <span class="admin">
-              <%#= link_to "Edit", edit_tour_path(tours) %> |
-               <%#= link_to "Destroy", tours, method: :delete, data:{ confirm: "Are you sure you want to delete" } %>
+              <%= link_to "Edit", edit_tour_path(tours) %> |
          </span>
-        </div>
-        </div>
+         </div>
+         </div>
  <% end %>
  <%= link_to 'New Tour', new_tour_path, class: "btn" %>
 

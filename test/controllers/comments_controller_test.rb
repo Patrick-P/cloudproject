@@ -10,6 +10,24 @@ class CommentsControllerTest < ActionController::TestCase
     assert_response :success
     assert_not_nil assigns(:comments)
   end
+  
+  test "should be redirected when not logged in" do
+    get :new
+    assert_response :redirect
+    assert_redirected_to new_user_session_path
+  end
+
+  test "should render the new page when logged in" do
+    sign_in users(patrick)
+    get :new
+    assert_response :success
+  end
+
+  test "should be logged in to post a commetn" do
+    post :create, comment: { content: "Hello" }
+    assert_response :redirect
+    assert_redirected_to new_user_session_path
+  end
 
   test "should get new" do
     get :new

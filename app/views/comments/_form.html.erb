@@ -1,37 +1,19 @@
 <%= simple_form_for(@comment, html: { class: 'form-horizontal' }) do |form| %>
   <% if @comment.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+        <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
 
-      <ul>
-      <% @comment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>s
+         <ul>
+          <% @comment.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
   <% end %>
-    <%#= form.input  :user_id, collection: User.all, label_method: :full_name %><br>
-    <%= form.input  :Name %><br>
-     <%= form.input  :Comment %>
-
-  <div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    Dropdown
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><a href="#">Action</a></li>
-    <li><a href="#">Another action</a></li>
-    <li><a href="#">Something else here</a></li>
-    <li role="separator" class="divider"></li>
-    <li><a href="#">Separated link</a></li>
-  </ul>
-</div>
-  
-  
-  
-  
-  <div class="form-actions">
-    <%= form.button :submit %>
-  </div>
+         </ul>
+    </div>
+  <% end %>
+        <%#= form.input  :user_id, collection: User.all, label_method: :full_name %><br>
+        <%= form.input  :Name %><br>
+        <%= form.input  :Comment %>
+    <div class="form-actions">
+        <%= form.button :submit %>
+    </div>
 <% end %>

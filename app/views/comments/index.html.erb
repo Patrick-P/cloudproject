@@ -1,21 +1,31 @@
-<p id="notice"><%= notice %></p>
-  <div class="page-header">
-    <h1>All Comments</h1>
-  </div>
+<p id="notice"></p>
+      <div class="page-header">
+        <h1>All Comments</h1>
+      </div>
    
+       <%# everthing in this loop gets printed for each  comment on the page hf%>
     <% @comments.each do |comments| %>
-   
-  <div class="comment">
-    <strong><%= comments.Name %></strong>
-    <p><%= comments.Comment %></p>
-<div class="meta">
-    <%#= link_to time_ago_in_words(comments.created_at) + " ago", comments %> |
-    <%= link_to "Show", comments %> |
-  <span class="admin">
-       <%= link_to "Edit", edit_comment_path(comments) %> |
-       <%= link_to "Destroy", comments, method: :delete, data:{ confirm: "Are you sure you want to delete" } %>
-  </span>
-  </div>
-  </div>
-  <% end %>
-  <%= link_to 'New Comment', new_comment_path,  class: "btn"%>
+       <div class="comment">
+          <div class="row">
+             <div class="span1">
+               gravatr
+              <%#= image_tag comments.user.gravatar_url %> 
+             </div>
+          <div class="span7">
+              <strong><%= comments.Name %></strong>
+              <p><%= comments.Comment %></p>
+          <div class="meta">
+                  <%# I put these in differnt spans so I could change the way the links are displayed with out efedcting each otherf%>
+              <%= link_to time_ago_in_words(comments.created_at) + " ago", comments  %> |
+              <%= link_to "Show", comments %> |
+                  <%# I put these in differnt continers so I could change the way the links are displayedf%>
+          <span class="admin">
+              <%= link_to "Edit", edit_comment_path(comments) %> |
+              <%= link_to "Destroy", comments, method: :delete, data:{ confirm: "Are you sure you want to delete" } %>
+          </span>
+          </div>
+          </div>
+          </div>
+        </div>
+<% end %>
+          <%= link_to 'New Comment', new_comment_path,  class: "btn"%>

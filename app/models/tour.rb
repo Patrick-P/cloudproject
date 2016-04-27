@@ -1,7 +1,7 @@
 class Tour < ActiveRecord::Base
-     # has_many :orders
+      has_many :users
 
     def self.search(search)
-        where("type_ofTour LIKE ?" "%#{search})%")
+        where("Type_of_tour ILIKE ?", "%#{search})%")
     end
 end
